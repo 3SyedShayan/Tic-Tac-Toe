@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tic_tac_toe/riverpod/winner.dart';
+import 'package:tic_tac_toe/widgets/dialogbox.dart';
 
 class Grid extends ConsumerStatefulWidget {
   Grid({super.key});
@@ -24,6 +25,7 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[0],
       );
+      gameDialog();
     } else if (grid[3] == grid[4] &&
         grid[3] == grid[5] &&
         grid[3] != '' &&
@@ -31,13 +33,18 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[3],
       );
+            gameDialog();
+
     } else if (grid[6] == grid[7] &&
         grid[6] == grid[8] &&
         grid[6] != '' &&
         !anyWinner) {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[6],
+
       );
+      gameDialog();
+
     } else if (grid[0] == grid[3] &&
         grid[0] == grid[6] &&
         grid[0] != '' &&
@@ -45,6 +52,8 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[0],
       );
+      gameDialog();
+
     } else if (grid[1] == grid[4] &&
         grid[1] == grid[7] &&
         grid[1] != '' &&
@@ -52,6 +61,8 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[1],
       );
+      gameDialog();
+
     } else if (grid[2] == grid[5] &&
         grid[2] == grid[8] &&
         grid[2] != '' &&
@@ -59,6 +70,8 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[2],
       );
+      gameDialog();
+
     } else if (grid[0] == grid[4] &&
         grid[0] == grid[8] &&
         grid[0] != '' &&
@@ -66,6 +79,8 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[0],
       );
+      gameDialog();
+
     } else if (grid[2] == grid[4] &&
         grid[2] == grid[6] &&
         grid[2] != '' &&
@@ -73,10 +88,14 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[2],
       );
+      gameDialog();
+
     } else if (!grid.contains('')) {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: 'draw',
       );
+      gameDialog();
+
     }
   }
 
@@ -97,6 +116,15 @@ class _GridState extends ConsumerState<Grid> {
     }
     playerX = !playerX;
     winnerXO();
+  }
+
+  void gameDialog() {
+    showDialog(
+      context: context,
+      builder:
+          (context) => DialogBox()
+          
+    );
   }
 
   @override
