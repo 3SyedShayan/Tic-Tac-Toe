@@ -14,6 +14,7 @@ class _GridState extends ConsumerState<Grid> {
   bool playerX = true;
 
   List<String> grid = ['', '', '', '', '', '', '', '', ''];
+  List<int> winBoxes = [10, 10, 10];
 
   void winnerXO() {
     bool anyWinner = false;
@@ -25,77 +26,78 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[0],
       );
+      // setState(() {
+      winBoxes = [0, 1, 2];
+      // });
       gameDialog();
     } else if (grid[3] == grid[4] &&
         grid[3] == grid[5] &&
         grid[3] != '' &&
         !anyWinner) {
+      winBoxes = [3, 4, 5];
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[3],
       );
-            gameDialog();
-
+      gameDialog();
     } else if (grid[6] == grid[7] &&
         grid[6] == grid[8] &&
         grid[6] != '' &&
         !anyWinner) {
+      winBoxes = [6, 7, 8];
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[6],
-
       );
       gameDialog();
-
     } else if (grid[0] == grid[3] &&
         grid[0] == grid[6] &&
         grid[0] != '' &&
         !anyWinner) {
+      winBoxes = [0, 3, 6];
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[0],
       );
       gameDialog();
-
     } else if (grid[1] == grid[4] &&
         grid[1] == grid[7] &&
         grid[1] != '' &&
         !anyWinner) {
+      winBoxes = [1, 4, 7];
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[1],
       );
       gameDialog();
-
     } else if (grid[2] == grid[5] &&
         grid[2] == grid[8] &&
         grid[2] != '' &&
         !anyWinner) {
+      winBoxes = [2, 5, 8];
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[2],
       );
       gameDialog();
-
     } else if (grid[0] == grid[4] &&
         grid[0] == grid[8] &&
         grid[0] != '' &&
         !anyWinner) {
+      winBoxes = [0, 4, 8];
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[0],
       );
       gameDialog();
-
     } else if (grid[2] == grid[4] &&
         grid[2] == grid[6] &&
         grid[2] != '' &&
         !anyWinner) {
+      winBoxes = [2, 4, 6];
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[2],
       );
       gameDialog();
-
     } else if (!grid.contains('')) {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: 'draw',
       );
       gameDialog();
-
     }
   }
 
@@ -119,12 +121,7 @@ class _GridState extends ConsumerState<Grid> {
   }
 
   void gameDialog() {
-    showDialog(
-      context: context,
-      builder:
-          (context) => DialogBox()
-          
-    );
+    showDialog(context: context, builder: (context) => DialogBox());
   }
 
   @override
@@ -145,7 +142,7 @@ class _GridState extends ConsumerState<Grid> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(color: Colors.black),
-                color: Colors.green,
+                color: winBoxes.contains(index) ? Colors.amber : Colors.pink,
               ),
               padding: EdgeInsets.all(10),
               child: Center(
