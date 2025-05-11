@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tic_tac_toe/riverpod/restart_game.dart';
 import 'package:tic_tac_toe/riverpod/winner.dart';
 
 class DialogBox extends ConsumerWidget {
@@ -25,7 +26,7 @@ class DialogBox extends ConsumerWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                ref.read(isRestart.notifier).state = true;
               },
               child: Text("Restart Game"),
             ),

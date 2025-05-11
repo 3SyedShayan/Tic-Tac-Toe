@@ -23,7 +23,6 @@ class GameState {
     }
 
     return GameState(
-      // winner: winner ?? this.winner
       winner: winner ?? this.winner,
       xWins: xWins ?? this.xWins,
       oWins: oWins ?? this.oWins,

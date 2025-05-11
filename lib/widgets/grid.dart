@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tic_tac_toe/riverpod/restart_game.dart';
 import 'package:tic_tac_toe/riverpod/winner.dart';
 import 'package:tic_tac_toe/widgets/dialogbox.dart';
 
@@ -14,10 +15,10 @@ class _GridState extends ConsumerState<Grid> {
   bool playerX = true;
 
   List<String> grid = ['', '', '', '', '', '', '', '', ''];
-  List<int> winBoxes = [10, 10, 10];
+  List<int> winBoxes = [];
+  bool anyWinner = false;
 
   void winnerXO() {
-    bool anyWinner = false;
     final gameState = ref.read(winnerProvider);
     if (grid[0] == grid[1] &&
         grid[0] == grid[2] &&
@@ -26,9 +27,7 @@ class _GridState extends ConsumerState<Grid> {
       ref.read(winnerProvider.notifier).state = gameState.copyWith(
         winner: grid[0],
       );
-      // setState(() {
       winBoxes = [0, 1, 2];
-      // });
       gameDialog();
     } else if (grid[3] == grid[4] &&
         grid[3] == grid[5] &&
@@ -101,6 +100,14 @@ class _GridState extends ConsumerState<Grid> {
     }
   }
 
+  void restartGame() {
+    setState(() {
+      grid = ['', '', '', '', '', '', '', '', ''];
+    });
+    winBoxes = [];
+    Navigator.of(context).pop();
+  }
+
   void displayXO(int index, BuildContext context) {
     if (playerX && grid[index] == '') {
       setState(() {
@@ -126,6 +133,13 @@ class _GridState extends ConsumerState<Grid> {
 
   @override
   Widget build(BuildContext context) {
+    ref.listen<bool>(isRestart, (previous, next) {
+      if (next) {
+        restartGame();
+        ref.read(isRestart.notifier).state = false;
+      }
+    });
+
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
