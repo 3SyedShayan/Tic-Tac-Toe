@@ -11,11 +11,31 @@ class Scoreboard extends ConsumerWidget {
       children: [
         Text(
           "Scoreboard",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 20),
-        Text("X Wins"),
-        Text(ref.watch(winnerProvider).xWins.toString()),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+
+          children: [
+            Text(
+              "X Wins",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+            ),
+            SizedBox(width: 20),
+            Text(
+              "O Wins",
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(ref.watch(winnerProvider).xWins.toString()),
+            SizedBox(width: 50),
+            Text(ref.watch(winnerProvider).oWins.toString()),
+          ],
+        ),
       ],
     );
   }
