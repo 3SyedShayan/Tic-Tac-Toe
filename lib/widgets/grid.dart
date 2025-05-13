@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tic_tac_toe/riverpod/restart_game.dart';
 import 'package:tic_tac_toe/riverpod/winner.dart';
 import 'package:tic_tac_toe/widgets/dialogbox.dart';
+import 'package:http/http.dart' as http;
 
 class Grid extends ConsumerStatefulWidget {
   Grid({super.key});
@@ -111,6 +112,7 @@ class _GridState extends ConsumerState<Grid> {
   void displayXO(int index, BuildContext context) {
     if (playerX && grid[index] == '') {
       setState(() {
+        Uri.http('console.firebase.google.com');
         grid[index] = 'X';
       });
     } else if (!playerX && grid[index] == '') {
