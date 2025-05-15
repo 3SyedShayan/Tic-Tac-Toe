@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tic_tac_toe/riverpod/players_name.dart';
 import 'package:tic_tac_toe/riverpod/restart_game.dart';
 import 'package:tic_tac_toe/riverpod/winner.dart';
 import 'package:tic_tac_toe/widgets/dialogbox.dart';
@@ -13,7 +14,7 @@ class Grid extends ConsumerStatefulWidget {
 }
 
 class _GridState extends ConsumerState<Grid> {
-  bool playerX = true;
+  bool _playerX = true;
 
   List<String> grid = ['', '', '', '', '', '', '', '', ''];
   List<int> winBoxes = [];
@@ -105,17 +106,19 @@ class _GridState extends ConsumerState<Grid> {
     setState(() {
       grid = ['', '', '', '', '', '', '', '', ''];
     });
+    print(ref.read(playerName1));
+    print(ref.read(playerName2));
     winBoxes = [];
     Navigator.of(context).pop();
   }
 
   void displayXO(int index, BuildContext context) {
-    if (playerX && grid[index] == '') {
+    if (_playerX && grid[index] == '') {
       setState(() {
         Uri.http('console.firebase.google.com');
         grid[index] = 'X';
       });
-    } else if (!playerX && grid[index] == '') {
+    } else if (!_playerX && grid[index] == '') {
       setState(() {
         grid[index] = 'O';
       });
@@ -125,7 +128,7 @@ class _GridState extends ConsumerState<Grid> {
       );
       return;
     }
-    playerX = !playerX;
+    _playerX = !_playerX;
     winnerXO();
   }
 
@@ -145,8 +148,8 @@ class _GridState extends ConsumerState<Grid> {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
+        crossAxisSpacing: 15,
+        mainAxisSpacing: 15,
       ),
       itemCount: 9,
       itemBuilder:
@@ -157,8 +160,11 @@ class _GridState extends ConsumerState<Grid> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                border: Border.all(color: Colors.black),
-                color: winBoxes.contains(index) ? Colors.amber : Colors.pink,
+
+                color:
+                    winBoxes.contains(index)
+                        ? Color.fromRGBO(17, 16, 50, 1)
+                        : Color.fromRGBO(17, 16, 50, 1),
               ),
               padding: EdgeInsets.all(10),
               child: Center(
