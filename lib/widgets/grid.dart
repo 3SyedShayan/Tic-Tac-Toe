@@ -14,8 +14,6 @@ class Grid extends ConsumerStatefulWidget {
 }
 
 class _GridState extends ConsumerState<Grid> {
-  bool _playerX = true;
-
   List<String> grid = ['', '', '', '', '', '', '', '', ''];
   List<int> winBoxes = [];
   bool anyWinner = false;
@@ -113,6 +111,7 @@ class _GridState extends ConsumerState<Grid> {
   }
 
   void displayXO(int index, BuildContext context) {
+    bool _playerX = ref.read(playerXTurn);
     if (_playerX && grid[index] == '') {
       setState(() {
         Uri.http('console.firebase.google.com');
@@ -128,7 +127,7 @@ class _GridState extends ConsumerState<Grid> {
       );
       return;
     }
-    _playerX = !_playerX;
+    ref.watch(playerXTurn.notifier).state = !ref.watch(playerXTurn);
     winnerXO();
   }
 

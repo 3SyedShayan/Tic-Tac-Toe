@@ -22,13 +22,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      getName();
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     getName();
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +38,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         children: [
           SizedBox(height: 70),
           Scoreboard(),
+          SizedBox(height: 20),
           Expanded(
             child: Container(
               color: Color.fromRGBO(92, 54, 216, 1),
@@ -45,7 +46,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
           ),
           Text("Winner: ${ref.watch(winnerProvider).winner}"),
-          SizedBox(height: 280),
+          // SizedBox(height: 280),
         ],
       ),
     );
