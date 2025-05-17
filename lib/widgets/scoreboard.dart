@@ -29,7 +29,10 @@ class Scoreboard extends ConsumerWidget {
                 color: Color.fromRGBO(17, 16, 50, 1),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: ref.watch(playerXTurn) ? Colors.amber : Colors.green,
+                  color:
+                      ref.watch(playerXTurn)
+                          ? Colors.transparent
+                          : Colors.green,
                 ),
               ),
               child: Center(
@@ -64,7 +67,10 @@ class Scoreboard extends ConsumerWidget {
                 color: Color.fromRGBO(17, 16, 50, 1),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: ref.watch(playerXTurn) ? Colors.green : Colors.amber,
+                  color:
+                      ref.watch(playerXTurn)
+                          ? Colors.green
+                          : Colors.transparent,
                 ),
               ),
               child: Center(
