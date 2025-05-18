@@ -39,7 +39,7 @@ class Scoreboard extends ConsumerWidget {
                 child: Column(
                   children: [
                     Text(
-                      ref.read(playerName1),
+                      ref.watch(playerName1),
                       style: TextStyle(color: Colors.white),
                     ),
                     Text(
@@ -77,7 +77,7 @@ class Scoreboard extends ConsumerWidget {
                 child: Column(
                   children: [
                     Text(
-                      ref.read(playerName2),
+                      ref.watch(playerName2),
                       style: TextStyle(color: Colors.white),
                     ),
                     Text(

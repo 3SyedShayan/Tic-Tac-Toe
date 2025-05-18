@@ -13,31 +13,54 @@ class NameDialog extends ConsumerWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
+        padding: EdgeInsets.all(20),
         height: 200,
         width: 300,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color.fromRGBO(92, 54, 216, 1),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              style: TextStyle(color: Colors.white),
               controller: player1Controller,
+              cursorColor: Colors.green,
 
-              decoration: InputDecoration(hintText: "Enter Player 1 Name"),
+              decoration: InputDecoration(
+                hintText: "Enter Player 1 Name",
+                hintStyle: TextStyle(color: Colors.white),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green),
+                ),
+              ),
             ),
             TextField(
               controller: player2Controller,
-              decoration: InputDecoration(hintText: "Enter Player 2 Name"),
+              decoration: InputDecoration(
+                hintText: "Enter Player 2 Name",
+                hintStyle: TextStyle(color: Colors.white),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green),
+                ),
+              ),
             ),
+            SizedBox(height: 10),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromRGBO(60, 22, 181, 1),
+
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               onPressed: () {
                 final name1 = player1Controller.text.trim();
                 final name2 = player2Controller.text.trim();
                 if (name1.length >= 2 && name2.length >= 2) {
-                  player1Controller.text = player1Controller.text;
-                  player2Controller.text = player2Controller.text;
+                  ref.read(playerName1.notifier).state = player1Controller.text;
+                  ref.read(playerName2.notifier).state = player2Controller.text;
                   Navigator.pop(context);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -49,7 +72,7 @@ class NameDialog extends ConsumerWidget {
                   return;
                 }
               },
-              child: Text("OK"),
+              child: Text("OK", style: TextStyle(color: Colors.white)),
             ),
           ],
         ),

@@ -22,13 +22,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   WidgetsBinding.instance.addPostFrameCallback((_) {
-  //     getName();
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      getName();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
