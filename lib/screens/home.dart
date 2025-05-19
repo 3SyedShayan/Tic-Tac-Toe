@@ -40,9 +40,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           Scoreboard(),
           SizedBox(height: 20),
           Expanded(
-            child: Container(
-              color: Color.fromRGBO(92, 54, 216, 1),
-              child: Padding(padding: EdgeInsets.all(10), child: Grid()),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  width: 450, // Adjust as needed
+                  height: 410,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color.fromRGBO(92, 54, 216, 1),
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: Grid(),
+                ),
+              ),
             ),
           ),
           Text("Winner: ${ref.watch(winnerProvider).winner}"),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tic_tac_toe/riverpod/players_name.dart';
 
 class NameDialog extends ConsumerWidget {
@@ -14,7 +15,7 @@ class NameDialog extends ConsumerWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         padding: EdgeInsets.all(20),
-        height: 200,
+        height: 250,
         width: 300,
         decoration: BoxDecoration(
           color: Color.fromRGBO(92, 54, 216, 1),
@@ -23,12 +24,22 @@ class NameDialog extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text(
+              "Enter Player Names",
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
             TextField(
               style: TextStyle(color: Colors.white),
               controller: player1Controller,
               cursorColor: Colors.green,
-
               decoration: InputDecoration(
+                prefixIcon: Text(
+                  "X",
+                  style: GoogleFonts.cherryBombOne(
+                    color: Color.fromRGBO(241, 19, 81, 1),
+                    fontSize: 25,
+                  ),
+                ),
                 hintText: "Enter Player 1 Name",
                 hintStyle: TextStyle(color: Colors.white),
                 focusedBorder: UnderlineInputBorder(
@@ -37,8 +48,24 @@ class NameDialog extends ConsumerWidget {
               ),
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               controller: player2Controller,
+
               decoration: InputDecoration(
+                prefixIcon: Text(
+                  "O",
+                  style: GoogleFonts.cherryBombOne(
+                    color: Color.fromRGBO(251, 210, 46, 1),
+                    fontSize: 25,
+                  ),
+                ),
+                // prefix: Text(
+                //   "O",
+                //   style: GoogleFonts.cherryBombOne(
+                //     color: Color.fromRGBO(251, 210, 46, 1),
+                //     fontSize: 20,
+                //   ),
+                // ),
                 hintText: "Enter Player 2 Name",
                 hintStyle: TextStyle(color: Colors.white),
                 focusedBorder: UnderlineInputBorder(

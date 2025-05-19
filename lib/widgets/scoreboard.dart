@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tic_tac_toe/riverpod/players_name.dart';
 import 'package:tic_tac_toe/riverpod/winner.dart';
 
@@ -18,6 +19,7 @@ class Scoreboard extends ConsumerWidget {
             color: Colors.white,
           ),
         ),
+        SizedBox(height: 10),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
 
@@ -32,7 +34,7 @@ class Scoreboard extends ConsumerWidget {
                   color:
                       ref.watch(playerXTurn)
                           ? Colors.transparent
-                          : Colors.green,
+                          : Colors.white,
                 ),
               ),
               child: Center(
@@ -44,13 +46,12 @@ class Scoreboard extends ConsumerWidget {
                     ),
                     Text(
                       "O",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
+                      style: GoogleFonts.cherryBombOne(
+                        fontSize: 45,
+                        color: Color.fromRGBO(251, 210, 46, 1),
                       ),
                     ),
-                    SizedBox(height: 5),
+                    // SizedBox(height: 5),
                     Text(
                       "${ref.watch(winnerProvider).oWins.toString()} wins",
                       style: TextStyle(color: Colors.white),
@@ -69,7 +70,7 @@ class Scoreboard extends ConsumerWidget {
                 border: Border.all(
                   color:
                       ref.watch(playerXTurn)
-                          ? Colors.green
+                          ? Colors.white
                           : Colors.transparent,
                 ),
               ),
@@ -82,13 +83,12 @@ class Scoreboard extends ConsumerWidget {
                     ),
                     Text(
                       "X",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
+                      style: GoogleFonts.cherryBombOne(
+                        fontSize: 45,
+                        color: Color.fromRGBO(241, 19, 81, 1),
                       ),
                     ),
-                    SizedBox(height: 5),
+                    // SizedBox(height: 5),
                     Text(
                       "${ref.watch(winnerProvider).xWins.toString()} wins",
                       style: TextStyle(color: Colors.white),

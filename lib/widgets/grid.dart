@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tic_tac_toe/riverpod/players_name.dart';
 import 'package:tic_tac_toe/riverpod/restart_game.dart';
 import 'package:tic_tac_toe/riverpod/winner.dart';
@@ -114,7 +115,6 @@ class _GridState extends ConsumerState<Grid> {
     bool _playerX = ref.read(playerXTurn);
     if (_playerX && grid[index] == '') {
       setState(() {
-        Uri.http('console.firebase.google.com');
         grid[index] = 'X';
       });
     } else if (!_playerX && grid[index] == '') {
@@ -157,6 +157,7 @@ class _GridState extends ConsumerState<Grid> {
               displayXO(index, context);
             },
             child: Container(
+          
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
 
@@ -167,7 +168,16 @@ class _GridState extends ConsumerState<Grid> {
               ),
               padding: EdgeInsets.all(10),
               child: Center(
-                child: Text(grid[index], style: TextStyle(fontSize: 30)),
+                child: Text(
+                  grid[index],
+                  style: GoogleFonts.cherryBombOne(
+                    fontSize: 70,
+                    color:
+                        grid[index] == 'X'
+                            ? Color.fromRGBO(241, 19, 81, 1)
+                            : Color.fromRGBO(251, 210, 46, 1),
+                  ),
+                ),
               ),
             ),
           ),
