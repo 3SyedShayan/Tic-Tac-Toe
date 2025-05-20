@@ -33,8 +33,10 @@ class NameDialog extends ConsumerWidget {
               controller: player1Controller,
               cursorColor: Colors.green,
               decoration: InputDecoration(
+                fillColor: Color.fromRGBO(60, 22, 181, 1),
+                filled: true,
                 prefixIcon: Text(
-                  "X",
+                  " X",
                   style: GoogleFonts.cherryBombOne(
                     color: Color.fromRGBO(241, 19, 81, 1),
                     fontSize: 25,
@@ -47,25 +49,22 @@ class NameDialog extends ConsumerWidget {
                 ),
               ),
             ),
+            SizedBox(height: 7),
             TextField(
               style: TextStyle(color: Colors.white),
               controller: player2Controller,
 
               decoration: InputDecoration(
+                fillColor: Color.fromRGBO(60, 22, 181, 1),
+                filled: true,
                 prefixIcon: Text(
-                  "O",
+                  " O",
                   style: GoogleFonts.cherryBombOne(
                     color: Color.fromRGBO(251, 210, 46, 1),
                     fontSize: 25,
                   ),
                 ),
-                // prefix: Text(
-                //   "O",
-                //   style: GoogleFonts.cherryBombOne(
-                //     color: Color.fromRGBO(251, 210, 46, 1),
-                //     fontSize: 20,
-                //   ),
-                // ),
+
                 hintText: "Enter Player 2 Name",
                 hintStyle: TextStyle(color: Colors.white),
                 focusedBorder: UnderlineInputBorder(

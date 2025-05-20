@@ -44,7 +44,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Container(
-                  width: 450, // Adjust as needed
+                  width: 450,
                   height: 410,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
