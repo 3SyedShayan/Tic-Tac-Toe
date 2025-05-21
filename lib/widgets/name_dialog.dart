@@ -22,12 +22,14 @@ class NameDialog extends ConsumerWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "Enter Player Names",
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
+            SizedBox(height: 15),
             TextField(
               style: TextStyle(color: Colors.white),
               controller: player1Controller,
