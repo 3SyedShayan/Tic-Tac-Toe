@@ -174,6 +174,7 @@ class _GridState extends ConsumerState<Grid> {
                   grid[index],
                   style: GoogleFonts.cherryBombOne(
                     fontSize: 70,
+                    height: 0.9,
                     color:
                         grid[index] == 'X'
                             ? Color.fromRGBO(241, 19, 81, 1)
