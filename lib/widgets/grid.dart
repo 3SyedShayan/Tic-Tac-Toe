@@ -145,6 +145,9 @@ class _GridState extends ConsumerState<Grid> {
     });
 
     return GridView.builder(
+      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+      physics: NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         crossAxisSpacing: 15,
@@ -157,7 +160,6 @@ class _GridState extends ConsumerState<Grid> {
               displayXO(index, context);
             },
             child: Container(
-          
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
 
@@ -182,5 +184,44 @@ class _GridState extends ConsumerState<Grid> {
             ),
           ),
     );
+
+    //  GridView.builder(
+    //   shrinkWrap: true,
+    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    //     crossAxisCount: 3,
+    //     crossAxisSpacing: 15,
+    //     mainAxisSpacing: 15,
+    //   ),
+    //   itemCount: 9,
+    //   itemBuilder:
+    //       (context, index) => GestureDetector(
+    //         onTap: () {
+    //           displayXO(index, context);
+    //         },
+    //         child: Container(
+    //           decoration: BoxDecoration(
+    //             borderRadius: BorderRadius.circular(15),
+
+    //             color:
+    //                 winBoxes.contains(index)
+    //                     ? Color.fromRGBO(17, 16, 50, 1)
+    //                     : Color.fromRGBO(17, 16, 50, 1),
+    //           ),
+    //           padding: EdgeInsets.all(10),
+    //           child: Center(
+    //             child: Text(
+    //               grid[index],
+    //               style: GoogleFonts.cherryBombOne(
+    //                 fontSize: 70,
+    //                 color:
+    //                     grid[index] == 'X'
+    //                         ? Color.fromRGBO(241, 19, 81, 1)
+    //                         : Color.fromRGBO(251, 210, 46, 1),
+    //               ),
+    //             ),
+    //           ),
+    //         ),
+    //       ),
+    // );
   }
 }

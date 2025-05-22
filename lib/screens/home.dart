@@ -35,24 +35,25 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(26, 27, 79, 1),
       body: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(height: 70),
           Scoreboard(),
           SizedBox(height: 20),
-          Expanded(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  width: 450,
-                  height: 410,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color.fromRGBO(92, 54, 216, 1),
-                  ),
-                  padding: EdgeInsets.all(10),
-                  child: Grid(),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.width * 0.9,
+                // width: 450,
+                // height: 410,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Color.fromRGBO(92, 54, 216, 1),
                 ),
+                // padding: EdgeInsets.only(left: 10, right: 10),
+                child: Grid(),
               ),
             ),
           ),
