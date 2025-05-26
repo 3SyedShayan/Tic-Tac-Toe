@@ -131,7 +131,11 @@ class _GridState extends ConsumerState<Grid> {
   }
 
   void gameDialog() {
-    showDialog(context: context, builder: (context) => DialogBox());
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => DialogBox(),
+    );
   }
 
   @override
