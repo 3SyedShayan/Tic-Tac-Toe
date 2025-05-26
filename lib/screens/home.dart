@@ -46,19 +46,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.width * 0.9,
-                // width: 450,
-                // height: 410,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Color.fromRGBO(92, 54, 216, 1),
                 ),
-                // padding: EdgeInsets.only(left: 10, right: 10),
                 child: Grid(),
               ),
             ),
           ),
           Text("Winner: ${ref.watch(winnerProvider).winner}"),
-          // SizedBox(height: 280),
         ],
       ),
     );

@@ -5,7 +5,6 @@ import 'package:tic_tac_toe/riverpod/players_name.dart';
 import 'package:tic_tac_toe/riverpod/restart_game.dart';
 import 'package:tic_tac_toe/riverpod/winner.dart';
 import 'package:tic_tac_toe/widgets/dialogbox.dart';
-import 'package:http/http.dart' as http;
 
 class Grid extends ConsumerStatefulWidget {
   Grid({super.key});
@@ -185,44 +184,5 @@ class _GridState extends ConsumerState<Grid> {
             ),
           ),
     );
-
-    //  GridView.builder(
-    //   shrinkWrap: true,
-    //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    //     crossAxisCount: 3,
-    //     crossAxisSpacing: 15,
-    //     mainAxisSpacing: 15,
-    //   ),
-    //   itemCount: 9,
-    //   itemBuilder:
-    //       (context, index) => GestureDetector(
-    //         onTap: () {
-    //           displayXO(index, context);
-    //         },
-    //         child: Container(
-    //           decoration: BoxDecoration(
-    //             borderRadius: BorderRadius.circular(15),
-
-    //             color:
-    //                 winBoxes.contains(index)
-    //                     ? Color.fromRGBO(17, 16, 50, 1)
-    //                     : Color.fromRGBO(17, 16, 50, 1),
-    //           ),
-    //           padding: EdgeInsets.all(10),
-    //           child: Center(
-    //             child: Text(
-    //               grid[index],
-    //               style: GoogleFonts.cherryBombOne(
-    //                 fontSize: 70,
-    //                 color:
-    //                     grid[index] == 'X'
-    //                         ? Color.fromRGBO(241, 19, 81, 1)
-    //                         : Color.fromRGBO(251, 210, 46, 1),
-    //               ),
-    //             ),
-    //           ),
-    //         ),
-    //       ),
-    // );
   }
 }

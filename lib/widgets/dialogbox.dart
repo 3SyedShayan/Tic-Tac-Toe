@@ -9,6 +9,7 @@ class DialogBox extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Dialog(
+      
       child: Container(
         height: 200,
         width: 300,

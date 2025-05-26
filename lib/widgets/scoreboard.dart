@@ -51,7 +51,6 @@ class Scoreboard extends ConsumerWidget {
                         color: Color.fromRGBO(251, 210, 46, 1),
                       ),
                     ),
-                    // SizedBox(height: 5),
                     Text(
                       "${ref.watch(winnerProvider).oWins.toString()} wins",
                       style: TextStyle(color: Colors.white),
@@ -88,7 +87,6 @@ class Scoreboard extends ConsumerWidget {
                         color: Color.fromRGBO(241, 19, 81, 1),
                       ),
                     ),
-                    // SizedBox(height: 5),
                     Text(
                       "${ref.watch(winnerProvider).xWins.toString()} wins",
                       style: TextStyle(color: Colors.white),
@@ -97,15 +95,6 @@ class Scoreboard extends ConsumerWidget {
                 ),
               ),
             ),
-            // Text(
-            //   "X Wins",
-            //   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-            // ),
-            // SizedBox(width: 20),
-            // Text(
-            //   "O Wins",
-            //   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-            // ),
           ],
         ),
         Row(
