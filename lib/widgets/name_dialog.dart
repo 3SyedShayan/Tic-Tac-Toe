@@ -36,14 +36,17 @@ class NameDialog extends ConsumerWidget {
               decoration: InputDecoration(
                 fillColor: Color.fromRGBO(60, 22, 181, 1),
                 filled: true,
-                prefixIcon: Text(
-                  " X",
-                  style: GoogleFonts.cherryBombOne(
-                    color: Color.fromRGBO(241, 19, 81, 1),
-                    fontSize: 25,
+                prefixIcon: Padding(
+                  padding: EdgeInsets.only(top: 2),
+                  child: Text(
+                    "  X",
+                    style: GoogleFonts.cherryBombOne(
+                      color: Color.fromRGBO(241, 19, 81, 1),
+                      fontSize: 28,
+                    ),
                   ),
                 ),
-                hintText: "Enter Player 1 Name",
+                hintText: "Player 1",
                 hintStyle: TextStyle(color: Colors.white),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.green),
@@ -59,14 +62,14 @@ class NameDialog extends ConsumerWidget {
                 fillColor: Color.fromRGBO(60, 22, 181, 1),
                 filled: true,
                 prefixIcon: Text(
-                  " O",
+                  "  O",
                   style: GoogleFonts.cherryBombOne(
                     color: Color.fromRGBO(251, 210, 46, 1),
-                    fontSize: 25,
+                    fontSize: 30,
                   ),
                 ),
 
-                hintText: "Enter Player 2 Name",
+                hintText: "Player 2",
                 hintStyle: TextStyle(color: Colors.white),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.green),

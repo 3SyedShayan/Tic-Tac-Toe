@@ -19,7 +19,7 @@ class Scoreboard extends ConsumerWidget {
             color: Colors.white,
           ),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 25),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
 
@@ -42,7 +42,7 @@ class Scoreboard extends ConsumerWidget {
                   children: [
                     Text(
                       ref.watch(playerName1),
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     Text(
                       "O",
@@ -78,7 +78,7 @@ class Scoreboard extends ConsumerWidget {
                   children: [
                     Text(
                       ref.watch(playerName2),
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     Text(
                       "X",
