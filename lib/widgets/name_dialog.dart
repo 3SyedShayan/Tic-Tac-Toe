@@ -36,6 +36,7 @@ class NameDialog extends ConsumerWidget {
               decoration: InputDecoration(
                 fillColor: Color.fromRGBO(60, 22, 181, 1),
                 filled: true,
+                alignLabelWithHint: true,
                 prefixIcon: Padding(
                   padding: EdgeInsets.only(top: 2),
                   child: Text(
@@ -70,6 +71,8 @@ class NameDialog extends ConsumerWidget {
                 ),
 
                 hintText: "Player 2",
+                alignLabelWithHint: true,
+
                 hintStyle: TextStyle(color: Colors.white),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.green),
